@@ -4,12 +4,8 @@ setInterval(function () {
 
         fetch(BiliDanMuAPI + "?roomid=" + RoomID, {
             method: 'GET',
-            data: { roomid: RoomID },
-            headers: {
-                'Content-Type': 'application/json;charset=UTF-8'
-            },
-            mode: 'cors',
-            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+            referrerPolicy: 'origin'
         })
         .then(response => response.json())
         .then(data => {
