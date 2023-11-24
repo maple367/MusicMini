@@ -6,7 +6,7 @@ setInterval(function () {
             method: 'GET',
             data: { roomid: RoomID },
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json;charset=UTF-8'
             },
             mode: 'cors',
             credentials: 'same-origin',
