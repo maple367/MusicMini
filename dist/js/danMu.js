@@ -4,10 +4,11 @@ setInterval(function () {
 
         fetch(BiliDanMuAPI, {
             method: 'GET',
+            data: { roomid: RoomID },
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ roomid: RoomID })
         })
         .then(response => response.json())
         .then(data => {
