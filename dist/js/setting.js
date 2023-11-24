@@ -1,9 +1,9 @@
 ﻿//API地址
-var ColudMusicAPI = "http://localhost:3000";
-var BiliDanMuAPI = "http://localhost:8514";
+var ColudMusicAPI = "https://netease-cloud-music-api.maple367.eu.org";
+var BiliDanMuAPI = "https://blc-proxy.maple367.eu.org";
 
 //房间绑定
-var RoomID = "0";
+var RoomID = "383975";
 $(document).ready(function () {
     $("#LiveRoomNumInputButton").click(function () {
         RoomID = ($("#LiveRoomNumInput").val());
