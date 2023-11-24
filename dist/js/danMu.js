@@ -3,7 +3,7 @@ setInterval(function () {
     if (((DanmuCtrlSwich == true) || (DanmuOrderSwich == true)) && (RoomID != "0")) {//判断开关状态，全关则停止轮询
 
         fetch(BiliDanMuAPI + "?roomid=" + RoomID, {
-            method: 'POST',
+            method: 'GET',
             data: { roomid: RoomID },
             headers: {
                 'Content-Type': 'application/json'
