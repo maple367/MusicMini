@@ -1,9 +1,9 @@
 ﻿//弹幕轮询
 setInterval(function () {
     if (((DanmuCtrlSwich == true) || (DanmuOrderSwich == true)) && (RoomID != "0")) {//判断开关状态，全关则停止轮询
-        
+
         fetch(BiliDanMuAPI + "?roomid=" + RoomID, {
-            method: 'GET',
+            method: 'POST',
             data: { roomid: RoomID },
             headers: {
                 'Content-Type': 'application/json'
