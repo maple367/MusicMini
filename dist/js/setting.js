@@ -3,7 +3,7 @@ var ColudMusicAPI = "https://netease-cloud-music-api.maple367.eu.org";
 var BiliDanMuAPI = "https://blc-proxy.maple367.eu.org/xlive/web-room/v1/dM/gethistory";
 
 //房间绑定
-var RoomID = "0";
+var RoomID = "383975";
 $(document).ready(function () {
     $("#LiveRoomNumInputButton").click(function () {
         RoomID = ($("#LiveRoomNumInput").val());
@@ -26,7 +26,7 @@ $(document).ready(function () {
     })
 })
 //弹幕点歌
-var DanmuOrderSwich = false;
+var DanmuOrderSwich = true;
 $(document).ready(function () {
     $("#DanmuOrderSwichDiv").click(function () {
         DanmuOrderSwich = $("#DanmuOrderSwich").is(":checked");

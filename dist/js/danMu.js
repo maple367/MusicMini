@@ -51,6 +51,8 @@ setInterval(function () {
                                     //管理员点歌
                                     //点歌函数
                                     GetOrederList(roomMsg[i].text.slice(4))
+                                    TopMsg("点歌成功", "已切歌", false);
+                                    NextMusic(true, true);
                                 } else if (order_CD_list.includes(roomMsg[i].uid)) {
                                     //点歌CD
                                     TopMsg("点歌失败", "冷却中", true);
@@ -62,6 +64,8 @@ setInterval(function () {
                                     order_CD_list.push(roomMsg[i].uid);
                                     //点歌函数
                                     GetOrederList(roomMsg[i].text.slice(4))
+                                    TopMsg("点歌成功", "已切歌", false);
+                                    NextMusic(true, true);
                                 }
                             }
                         }
