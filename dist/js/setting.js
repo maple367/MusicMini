@@ -1,6 +1,6 @@
 ﻿//API地址
 var ColudMusicAPI = "https://netease-cloud-music-api.maple367.eu.org";
-var BiliDanMuAPI = "https://blc-proxy.maple367.eu.org/xlive/web-room/v1/dM/gethistory";
+var BiliDanMuAPI = "https://blc-proxy.maple367.eu.org";
 
 //房间绑定
 var RoomID = "0";

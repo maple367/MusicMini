@@ -1,4 +1,4 @@
-﻿//弹幕轮询
+﻿//弹幕轮询 xlive/web-room/v1/dM/gethistory
 setInterval(function () {
     if (((DanmuCtrlSwich == true) || (DanmuOrderSwich == true)) && (RoomID != "0")) {//判断开关状态，全关则停止轮询
         $.getJSON(BiliDanMuAPI, { roomid: RoomID }, function (data) {//获取数据
