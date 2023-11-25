@@ -11,6 +11,8 @@ var orderListDelID = null;
 var orderListLength = 5;
 //点歌间隔（秒）
 var orderSecond = 300;
+//切歌CD列表
+var next_CD_list = new Array;
 
 function SongSearch(songName) {
     $.getJSON(ColudMusicAPI+"/search", { limit: 1, keywords: songName, realIP: '58.250.174.78' }, function (data) {
@@ -79,6 +81,7 @@ function OrederListDel(sid) {
 function CotList() {
     setTimeout(function () {
         order_CD_list.shift();
+        next_CD_list.shift();
         CotList();
     }, orderSecond * 1000)
 }
