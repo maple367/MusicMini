@@ -14,7 +14,7 @@ setInterval(function () {
             } else {
                 var adminMsg = data.data.admin;//管理信息
                 var roomMsg = data.data.room;//房间信息
-                //管理功能:切歌，强制点歌，播放歌单....
+                //管理功能:强制点歌，播放歌单....
                 if (DanmuCtrlSwich == true) {
                     for (i in adminMsg) {
                         if (((Date.parse(new Date()) / 1000) - 10) <= timeLine(adminMsg[i].timeline)) {
@@ -37,7 +37,7 @@ setInterval(function () {
                         }
                     }
                 }
-                //观众点歌
+                //点歌切歌
                 if (DanmuOrderSwich == true) {
                     for (i in roomMsg) {
                         if (((Date.parse(new Date()) / 1000) - 10) <= timeLine(roomMsg[i].timeline)) {
