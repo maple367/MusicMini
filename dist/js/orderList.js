@@ -13,7 +13,7 @@ var orderListLength = 5;
 var orderSecond = 300;
 
 function SongSearch(songName) {
-    $.getJSON(ColudMusicAPI+"/search", { limit: 1, keywords: songName }, function (data) {
+    $.getJSON(ColudMusicAPI+"/search", { limit: 1, keywords: songName, realIP: '58.250.174.78' }, function (data) {
         if (Number(eval(data).result.songCount) == 0) {
             TopMsg("播放失败", songName + "不存在", true);
         } else {
@@ -25,7 +25,7 @@ function SongSearch(songName) {
     })
 }
 function GetOrederList(songName) {
-    $.getJSON(ColudMusicAPI+"/search", { limit: 1, keywords: songName }, function (data) {
+    $.getJSON(ColudMusicAPI+"/search", { limit: 1, keywords: songName, realIP: '58.250.174.78' }, function (data) {
         if (Number(eval(data).result.songCount)==0) {
             TopMsg("点歌失败", songName + "不存在", true);
         } else {

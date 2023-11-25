@@ -30,7 +30,7 @@ function MusicPlay(sid) {
 }
 //歌曲信息获取函数（封面，歌名，艺术家，歌词）
 function MusicInfo(sid) {
-    $.getJSON(ColudMusicAPI + "/song/detail", { ids: sid }, function (data) {
+    $.getJSON(ColudMusicAPI + "/song/detail", { ids: sid, realIP: '58.250.174.78' }, function (data) {
         //歌名
         var nameData = eval(data).songs[0].name;
         $("#SongName").empty();
@@ -53,7 +53,7 @@ function MusicInfo(sid) {
 
     //获取歌词
     //var Music = document.getElementById("Music");
-    $.getJSON(ColudMusicAPI + "/lyric", { id: sid }, function (data) {
+    $.getJSON(ColudMusicAPI + "/lyric", { id: sid, realIP: '58.250.174.78' }, function (data) {
         //清空上一曲的歌词
         $("#LyricText").text("");
         $("#LyricTextTranslation").text("");
