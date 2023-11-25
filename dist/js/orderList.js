@@ -30,7 +30,8 @@ function SongPlay_forceId(songId) {
     try {
         var sid = Number(songId);
         MusicPlay(sid);
-        PlayIconChange(sid)
+        PlayIconChange(sid);
+        TopMsg("播放", "ID:" + sid, false);
     } catch (error) {
         TopMsg("播放失败", "歌曲ID不合法", true);
     }
