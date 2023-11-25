@@ -26,6 +26,15 @@ function SongSearch(songName) {
         }
     })
 }
+function SongPlay_forceId(songId) {
+    try {
+        var sid = Number(songId);
+        MusicPlay(sid);
+        PlayIconChange(sid)
+    } catch (error) {
+        TopMsg("播放失败", "歌曲ID不合法", true);
+    }
+}
 function GetOrederList(songName) {
     $.getJSON(ColudMusicAPI+"/search", { limit: 1, keywords: songName, realIP: '58.250.174.78' }, function (data) {
         if (Number(eval(data).result.songCount)==0) {

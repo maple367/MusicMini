@@ -26,6 +26,9 @@ setInterval(function () {
                             } else if (adminMsg[i].text.slice(0, 4) == "#播放 ") {
                                 //强制播放歌曲
                                 SongSearch(adminMsg[i].text.slice(4))
+                            } else if (adminMsg[i].text.slice(0, 6) == "#ID播放 ") {
+                                //强制按ID播放歌曲
+                                SongPlay_forceId(adminMsg[i].text.slice(6))
                             } else if (adminMsg[i].text.slice(0, 4) == "#提示 ") {
                                 //发送顶部提示
                                 TopMsg("提示", adminMsg[i].text.slice(4), true);
