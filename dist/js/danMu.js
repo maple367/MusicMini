@@ -86,7 +86,7 @@ setInterval(function () {
             console.log("[网络错误]弹幕服务器无响应或者返回了错误的数据")
         });
     }
-}, 10000);
+}, 20000);
 
 
 function timeLine(timeLine) {
