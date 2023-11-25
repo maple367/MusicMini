@@ -16,24 +16,11 @@ function MusicPlay(sid) {
             //获取歌曲信息
             MusicInfo(sid);
         } else {
-            try {
-                TopMsg("无法获取歌曲信息", '', true)
-                var songData = 'https://music.163.com/song/media/outer/url?id='+ sid +'.mp3';
-                $("#Music").attr("src", songData);
-                oAudio = document.getElementById('Music');
-                oAudio.play();
-                Play('play');
-                //刷新播放按钮
-                $("#PlayButtonIcon").empty();
-                $("#PlayButtonIcon").append("&#xe651;");
-                //获取歌曲信息
-                MusicInfo(sid);
-            }
-            catch (err) {
+            TopMsg("歌曲无版权，已切歌", '', true)
             console.log("[常规错误]歌曲无版权")
             before_list.shift(play_list[music_num])
             NextMusic(true,true);
-        }}
+        }
     }).fail(function () {//错误处理
         TopMsg("歌曲播放链接获取失败", '', true)
         console.log("[网络错误]歌曲播放链接获取失败")
