@@ -17,7 +17,7 @@ setInterval(function () {
                 //管理功能:强制点歌，播放歌单....
                 if (DanmuCtrlSwich == true) {
                     for (i in adminMsg) {
-                        if (((Date.parse(new Date()) / 1000) - 10) <= timeLine(adminMsg[i].timeline)) {
+                        if (((Date.parse(new Date()) / 1000) - 20) <= timeLine(adminMsg[i].timeline)) {
                             //切歌 歌单 点歌
                             if (adminMsg[i].text.slice(0, 4) == "#歌单 ") {
                                 //设置歌单
@@ -40,7 +40,7 @@ setInterval(function () {
                 //点歌切歌
                 if (DanmuOrderSwich == true) {
                     for (i in roomMsg) {
-                        if (((Date.parse(new Date()) / 1000) - 10) <= timeLine(roomMsg[i].timeline)) {
+                        if (((Date.parse(new Date()) / 1000) - 20) <= timeLine(roomMsg[i].timeline)) {
                             if (roomMsg[i].text.slice(0, 4) == "#点歌 ") {
                                 //相关函数
                                 if (Number(roomMsg[i].isadmin) == 1) {
