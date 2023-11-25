@@ -1,7 +1,7 @@
 ﻿//歌曲播放函数（歌曲MP3）
 function MusicPlay(sid) {
     //获取歌曲链接
-    $.getJSON(ColudMusicAPI + "/song/url", { id: sid }, function (data) {
+    $.getJSON(ColudMusicAPI + "/song/url", { id: sid, realIP: '58.250.174.78' }, function (data) {
       var code = eval(data).data[0].code;
         if (Number(code) == 200) {
             //播放音乐
