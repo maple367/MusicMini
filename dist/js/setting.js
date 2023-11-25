@@ -112,7 +112,7 @@ function MiniSwichChange() {
     }
 }
 //歌单指定
-var SongListID = "";
+var SongListID = "8882371483";
 $(document).ready(function () {
     $("#SongOrderButton").click(function () {
         SongListID = ($("#SongOrderInput").val());
