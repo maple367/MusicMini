@@ -73,22 +73,23 @@ $(document).ready(function () {
                             if (data.code == 200) {
                                 NeteaseCloudMusicCookie = data.cookie;
                                 NeteaseCloudMusicCookie = encodeURIComponent(NeteaseCloudMusicCookie);
-                                TopMsg("登录成功", '', true);
+                                TopMsg("登录成功", '', false);
+                                $("#NeteaseCloudMusicLoginButton").text("已登录");
                                 console.log(NeteaseCloudMusicCookie)
                             } else {
-                                TopMsg("登录失败", '请重试', false)
+                                TopMsg("登录失败", '请重试', true)
                             }
                         }).fail(function () {//错误处理
-                            TopMsg("网络异常", '', false)
+                            TopMsg("网络异常", '', true)
                         })
                     } else {
                         TopMsg("取消登录", '', true)
                     }
                 } else {
-                    TopMsg("验证码获取失败", '请重试', false)
+                    TopMsg("验证码获取失败", '请重试', true)
                 }
             }).fail(function () {//错误处理
-            TopMsg("网络异常", '', false)
+            TopMsg("网络异常", '', true)
             })
         } else {
             TopMsg("取消登录", '', true)
@@ -102,11 +103,11 @@ function CheckLogin() {
             return true //登录状态正常
         } else {
             NeteaseCloudMusicCookie = ""
+            $("#NeteaseCloudMusicLoginButton").text("登录过期");
             return false //登录状态异常，清除cookie
         }
     }).fail(function() {
-        TopMsg("网络异常", '', false);
-        CheckLogin()
+        TopMsg("网络异常", '', true)
     })
 }
 //频谱开关
