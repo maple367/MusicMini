@@ -1,7 +1,10 @@
 ﻿//歌曲播放函数（歌曲MP3）
 function MusicPlay(sid) {
     //获取歌曲链接
-    $.getJSON(ColudMusicAPI + "/song/url", { id: sid, realIP: '58.250.174.78' }, function (data) {
+    if (NeteaseCloudMusicCookie != "") {
+        CheckLogin()
+    };
+    $.getJSON(ColudMusicAPI + "/song/url", { id: sid, realIP: '58.250.174.78', cookie: NeteaseCloudMusicCookie }, function (data) {
       var code = eval(data).data[0].code;
         if (Number(code) == 200) {
             //播放音乐
@@ -30,7 +33,7 @@ function MusicPlay(sid) {
 }
 //歌曲信息获取函数（封面，歌名，艺术家，歌词）
 function MusicInfo(sid) {
-    $.getJSON(ColudMusicAPI + "/song/detail", { ids: sid, realIP: '58.250.174.78' }, function (data) {
+    $.getJSON(ColudMusicAPI + "/song/detail", { ids: sid, realIP: '58.250.174.78', cookie: NeteaseCloudMusicCookie }, function (data) {
         //歌名
         var nameData = eval(data).songs[0].name;
         $("#SongName").empty();
@@ -53,7 +56,7 @@ function MusicInfo(sid) {
 
     //获取歌词
     //var Music = document.getElementById("Music");
-    $.getJSON(ColudMusicAPI + "/lyric", { id: sid, realIP: '58.250.174.78' }, function (data) {
+    $.getJSON(ColudMusicAPI + "/lyric", { id: sid, realIP: '58.250.174.78', cookie: NeteaseCloudMusicCookie }, function (data) {
         //清空上一曲的歌词
         $("#LyricText").text("");
         $("#LyricTextTranslation").text("");

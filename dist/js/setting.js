@@ -59,7 +59,56 @@ function PlayModeChange(mode) {
         console.log("[参数错误]播放模式有误")
     }
 }
-
+//登录
+var NeteaseCloudMusicCookie = "";
+$(document).ready(function () {
+    $("#NeteaseCloudMusicLoginButton").click(function () {
+        var PhoneNum = prompt("请输入手机号", "");
+        if (PhoneNum != null && PhoneNum != "") {
+            $.getJSON(ColudMusicAPI + "/captcha/sent", { phone: PhoneNum }, function (data) {
+                if (data.code == 200) {
+                    var Captcha = prompt("请输入验证码", "");
+                    if (Captcha != null && Captcha != "") {
+                        $.getJSON(ColudMusicAPI + "/login/cellphone", { phone: PhoneNum, captcha: Captcha }, function (data) {
+                            if (data.code == 200) {
+                                NeteaseCloudMusicCookie = data.cookie;
+                                NeteaseCloudMusicCookie = encodeURIComponent(NeteaseCloudMusicCookie);
+                                TopMsg("登录成功", '', true);
+                                console.log(NeteaseCloudMusicCookie)
+                            } else {
+                                TopMsg("登录失败", '请重试', false)
+                            }
+                        }).fail(function () {//错误处理
+                            TopMsg("网络异常", '', false)
+                        })
+                    } else {
+                        TopMsg("取消登录", '', true)
+                    }
+                } else {
+                    TopMsg("验证码获取失败", '请重试', false)
+                }
+            }).fail(function () {//错误处理
+            TopMsg("网络异常", '', false)
+            })
+        } else {
+            TopMsg("取消登录", '', true)
+        }
+    })
+})
+//检查登录
+function CheckLogin() {
+    $.getJSON(ColudMusicAPI + "/login/status", { cookie: NeteaseCloudMusicCookie }, function (data) {
+        if (data.data.account != null) {
+            return true //登录状态正常
+        } else {
+            NeteaseCloudMusicCookie = ""
+            return false //登录状态异常，清除cookie
+        }
+    }).fail(function() {
+        TopMsg("网络异常", '', false);
+        CheckLogin()
+    })
+}
 //频谱开关
 var SpectrumSwich = true;
 $(document).ready(function () {
