@@ -41,7 +41,7 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_branch: public
-          external_repository: maple367/maple367.github.io
+          external_repository: maple367/Tools
           publish_dir: ./
           destination_dir: ./MusicMini
           user_name: 'github-actions[bot]'
