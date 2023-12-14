@@ -5,7 +5,7 @@ HTML5前端网易云播放器，支持哔哩哔哩直播点歌
 
 ## 注意事项
 需要先行配置nodejs网易云API和nodejs哔哩哔哩直播弹幕跨域转发API          
-没有登录功能，所以版权歌听不了   
+支持手机登录   
 ## 使用方法
 ### 1. 安装API
 nodejs: <https://nodejs.org>    
