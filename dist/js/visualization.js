@@ -1,7 +1,7 @@
 ﻿function visualization() {
     // 创建音频上下文对象
     var oCtx = new AudioContext();
-    console.log(oCtx);
+    //console.log(oCtx);
 
     // 创建媒体源,除了audio本身可以获取，也可以通过oCtx对象提供的api进行媒体源操作
     var audioSrc = oCtx.createMediaElementSource(oAudio);
